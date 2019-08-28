@@ -21,15 +21,16 @@ public class ServicioSalidaVehiculo {
         this.servicioCobro = new ServicioCobro();
     }
 
-    public double ejecutar(String placa, LocalDateTime fechaSalida){
-        actualizar(placa, fechaSalida);
-        return 0;
+    public double ejecutar(String placa, LocalDateTime fechaSalida) {
+        return actualizar(placa, fechaSalida);
     }
 
-    private void actualizar(String placa, LocalDateTime fechaSalida) {
-        Historial historial = buscarVehiculoEnHistorial(placa);
+    private double actualizar(String placa, LocalDateTime fechaSalida) {
+        Historial historial = repositorioHistorial.obtenerHistorialActualVehiculoParqueado(placa)
+                .orElseThrow(() -> new ExcepcionVehiculoNoSeEncuentraEnParqueadero(VEHICULO_NO_ESTA_EN_PARQUEADERO));
         double cobro = calcularCobro(historial, fechaSalida);
         actualizarHistorial(historial, fechaSalida, cobro);
+        return cobro;
     }
 
     private void actualizarHistorial(Historial historial, LocalDateTime fechaSalida, double cobro) {
@@ -43,15 +44,4 @@ public class ServicioSalidaVehiculo {
         return servicioCobro.calcularCobro(vehiculo, fechaIngreso, fechaSalida);
     }
 
-    private Historial buscarVehiculoEnHistorial(String placa) {
-        List<Parqueo> parqueados = this.repositorioHistorial.listarVehiculosEnElParqueadero();
-
-        for (int i = 0; i < parqueados.size(); i++) {
-            if (parqueados.get(i).getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
-                return new Historial(parqueados.get(i).getVehiculo(), parqueados.get(i).getFechaIngreso());
-            }
-        }
-
-        throw new ExcepcionVehiculoNoSeEncuentraEnParqueadero(VEHICULO_NO_ESTA_EN_PARQUEADERO);
-    }
 }

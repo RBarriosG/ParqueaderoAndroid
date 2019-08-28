@@ -44,14 +44,7 @@ public class PoliticaIngresoVehiculo {
     }
 
     private boolean yaEstaEnParqueadero(String placa) {
-        List<Parqueo> parqueados = this.repositorioHistorial.listarVehiculosEnElParqueadero();
-
-        for (int i = 0; i < parqueados.size(); i++) {
-            if (parqueados.get(i).getVehiculo().getPlaca().equalsIgnoreCase(placa)) {
-                return true;
-            }
-        }
-        return false;
+        return this.repositorioHistorial.obtenerHistorialActualVehiculoParqueado(placa).isPresent();
     }
 
     private boolean validarIngresoPlacaDiaHabil(String placa, LocalDateTime fechaIngreso) {

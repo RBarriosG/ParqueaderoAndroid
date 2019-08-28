@@ -10,7 +10,7 @@ public abstract class PoliticaCobro {
 
     private static final int REGLA_HORA = 9;
     private static final int HORAS_DIA = 24;
-    private static final int MILISEGUNDOS_HORA = 360000;
+    private static final int MILISEGUNDOS_HORA = 1000 * 3600;
 
     public static PoliticaCobro crear(Vehiculo vehiculo){
         if(vehiculo.getTipo() == TipoVehiculo.CARRO){

@@ -1,4 +1,4 @@
-package co.com.ceiba.parqueadero.dominio;
+package co.com.ceiba.parqueadero.dominio.vehiculo;
 
 import org.junit.Test;
 

@@ -27,4 +27,13 @@ public class Vehiculo {
     public TipoVehiculo getTipo() {
         return tipo;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "placa='" + placa + '\'' +
+                ", cilindraje=" + cilindraje +
+                ", tipo=" + tipo +
+                '}';
+    }
 }
