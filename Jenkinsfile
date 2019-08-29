@@ -40,7 +40,7 @@ pipeline {
         stage('Unit Tests') {
             steps{
                 echo "------------>Unit Tests<------------"
-                sh './gradlew --b ./build.gradle test'
+                sh './gradlew test'
             }
         }
         stage('Integration Tests') {
