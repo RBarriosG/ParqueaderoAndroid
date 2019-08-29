@@ -1,12 +1,10 @@
 package co.com.ceiba.parqueadero.dominio.servicio.politicas;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import co.com.ceiba.parqueadero.dominio.excepcion.ExcepcionIngresoPlacaVehiculo;
 import co.com.ceiba.parqueadero.dominio.excepcion.ExcepcionMaximoCupoVehiculo;
 import co.com.ceiba.parqueadero.dominio.excepcion.ExcepcionVehiculoYaEstaEnParqueadero;
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
 

@@ -1,4 +1,4 @@
-package co.com.ceiba.parqueadero.dominio.politicascobro;
+package co.com.ceiba.parqueadero.dominio.modelo.politicascobro;
 
 import org.junit.Test;
 import org.mockito.Mockito;

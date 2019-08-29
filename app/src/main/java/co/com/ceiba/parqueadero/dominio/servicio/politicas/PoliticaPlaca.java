@@ -1,6 +1,6 @@
 package co.com.ceiba.parqueadero.dominio.servicio.politicas;
 
-class PoliticaPlaca {
+public class PoliticaPlaca {
 
     private static final String REGLAS_PLACA = "a";
 

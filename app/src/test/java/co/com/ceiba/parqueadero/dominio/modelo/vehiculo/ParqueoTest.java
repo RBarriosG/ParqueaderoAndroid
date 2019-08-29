@@ -1,11 +1,9 @@
-package co.com.ceiba.parqueadero.dominio.vehiculo;
+package co.com.ceiba.parqueadero.dominio.modelo.vehiculo;
 
 import org.junit.Test;
 
 import java.time.LocalDateTime;
 
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.testdatabuilder.ParqueoTestDataBuilder;
 import co.com.ceiba.parqueadero.testdatabuilder.VehiculoTestDataBuilder;
 

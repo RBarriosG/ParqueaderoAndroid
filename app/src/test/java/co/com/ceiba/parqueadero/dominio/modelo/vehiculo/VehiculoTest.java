@@ -1,10 +1,9 @@
-package co.com.ceiba.parqueadero.dominio.vehiculo;
+package co.com.ceiba.parqueadero.dominio.modelo.vehiculo;
 
 import org.junit.Test;
 
 import co.com.ceiba.parqueadero.dominio.excepcion.ExcepcionValorObligaorio;
 import co.com.ceiba.parqueadero.dominio.excepcion.ExepcionLongitudValor;
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.testdatabuilder.VehiculoTestDataBuilder;
 
 import static junit.framework.TestCase.assertEquals;

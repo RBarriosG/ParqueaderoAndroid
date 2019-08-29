@@ -1,8 +1,7 @@
-package co.com.ceiba.parqueadero.dominio.historial;
+package co.com.ceiba.parqueadero.dominio.modelo.historial;
 
 import org.junit.Test;
 
-import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.testdatabuilder.HistorialTestDataBuilder;
 import co.com.ceiba.parqueadero.testdatabuilder.VehiculoTestDataBuilder;

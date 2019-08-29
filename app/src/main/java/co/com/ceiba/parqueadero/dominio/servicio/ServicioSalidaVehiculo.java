@@ -1,11 +1,9 @@
 package co.com.ceiba.parqueadero.dominio.servicio;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import co.com.ceiba.parqueadero.dominio.excepcion.ExcepcionVehiculoNoSeEncuentraEnParqueadero;
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
 

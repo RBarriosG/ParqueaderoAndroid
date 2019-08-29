@@ -3,7 +3,7 @@ package co.com.ceiba.parqueadero.dominio.modelo.vehiculo;
 import co.com.ceiba.parqueadero.dominio.excepcion.ExcepcionValorObligaorio;
 import co.com.ceiba.parqueadero.dominio.excepcion.ExepcionLongitudValor;
 
-public final class ValidadorVehiculo {
+final class ValidadorVehiculo {
 
     private static final String LA_PLACA_ES_OBLIGATORIA = "La placa es obligatoria";
     private static final String LA_PLACA_DEBE_TENER_MINIMO_LETRAS = "La placa debe tener minimo letras";
@@ -11,12 +11,12 @@ public final class ValidadorVehiculo {
 
     private ValidadorVehiculo(){}
 
-    public static void validarPlaca(String placa){
+    static void validarPlaca(String placa){
         validadorObligatorio(placa);
         validadorNoVacio(placa);
     }
 
-    public static void validarCilindraje(int cilindraje, TipoVehiculo tipo){
+    static void validarCilindraje(int cilindraje, TipoVehiculo tipo){
         if(tipo == TipoVehiculo.MOTO && cilindraje <= 0){
             throw new ExcepcionValorObligaorio(EL_CILINDRAJE_ES_OBLIGATORIO);
         }
