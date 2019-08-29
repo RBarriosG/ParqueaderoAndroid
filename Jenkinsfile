@@ -33,13 +33,14 @@ pipeline {
                          submoduleCfg: [],
                          userRemoteConfigs: [[credentialsId:'GitHub_RBarriosG',
                          url:'https://github.com/RBarriosG/ParqueaderoAndroid']]])
-                sh 'gradle clean'
+                sh 'chmod u+x gradlew'
+                sh './gradlew clean'
             }
         }
         stage('Unit Tests') {
             steps{
                 echo "------------>Unit Tests<------------"
-                sh 'gradle --b ./build.gradle test'
+                sh './gradlew --b ./build.gradle test'
             }
         }
         stage('Integration Tests') {
