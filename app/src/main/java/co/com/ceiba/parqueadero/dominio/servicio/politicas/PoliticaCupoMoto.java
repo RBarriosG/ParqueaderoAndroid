@@ -12,7 +12,7 @@ public class PoliticaCupoMoto {
         this.repositorioHistorial = repositorioHistorial;
     }
 
-    public boolean validar(){
+    public boolean validar() {
         long motosParqueadas = repositorioHistorial.contarVehiculosParqueadosPorTipo(TipoVehiculo.MOTO);
         return motosParqueadas < MAXIMO_CUPO_MOTO;
     }

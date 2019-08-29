@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class PoliticaFecha {
 
-    public boolean esDiaHabil(LocalDateTime fechaIngreso){
+    public boolean esDiaHabil(LocalDateTime fechaIngreso) {
         return !esLunes(fechaIngreso) && !esDomingo(fechaIngreso);
     }
 

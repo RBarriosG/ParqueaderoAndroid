@@ -14,22 +14,22 @@ public class HistorialTestDataBuilder {
 
     private LocalDateTime fechaIngreso;
 
-    public HistorialTestDataBuilder(){
+    public HistorialTestDataBuilder() {
         this.vehiculo = VEHICULO_CARRO_PRUEBA;
         this.fechaIngreso = FECHA_INGRESO_PRUEBA;
     }
 
-    public HistorialTestDataBuilder conVehiculo(Vehiculo vehiculo){
+    public HistorialTestDataBuilder conVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
         return this;
     }
 
-    public HistorialTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso){
+    public HistorialTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
         return this;
     }
 
-    public Historial build(){
+    public Historial build() {
         return new Historial(this.vehiculo, this.fechaIngreso);
     }
 

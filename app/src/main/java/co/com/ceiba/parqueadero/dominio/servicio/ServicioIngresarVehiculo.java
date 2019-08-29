@@ -11,14 +11,14 @@ import co.com.ceiba.parqueadero.dominio.servicio.politicas.PoliticaIngresoVehicu
 public class ServicioIngresarVehiculo {
 
     private final RepositorioHistorial repositorioHistorial;
-    private final PoliticaIngresoVehiculo  politicaIngresoVehiculo;
+    private final PoliticaIngresoVehiculo politicaIngresoVehiculo;
 
     public ServicioIngresarVehiculo(RepositorioHistorial repositorioHistorial) {
         this.repositorioHistorial = repositorioHistorial;
         this.politicaIngresoVehiculo = new PoliticaIngresoVehiculo(repositorioHistorial);
     }
 
-    public Parqueo ejecutar(Vehiculo vehiculo, LocalDateTime fechaIngreso){
+    public Parqueo ejecutar(Vehiculo vehiculo, LocalDateTime fechaIngreso) {
         politicaIngresoVehiculo.validar(vehiculo, fechaIngreso);
         return almacenarEnHistorial(vehiculo, fechaIngreso);
     }

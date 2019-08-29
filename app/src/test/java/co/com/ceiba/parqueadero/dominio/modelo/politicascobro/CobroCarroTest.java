@@ -100,14 +100,13 @@ public class CobroCarroTest {
     public void vehiculoNoEncontradoTest() {
         //arrange
         Vehiculo carro = new VehiculoTestDataBuilder().build();
-        Historial historial = new HistorialTestDataBuilder().conFechaIngreso(FECHA_INGRESO_DIA_HABIL).build();
         RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
         ServicioSalidaVehiculo servicioSalidaVehiculo = new ServicioSalidaVehiculo(repositorioHistorial);
 
         try {
-            double precio = servicioSalidaVehiculo.ejecutar(carro.getPlaca(), FECHA_SALIDA_PLUS_3_HORAS);
+            servicioSalidaVehiculo.ejecutar(carro.getPlaca(), FECHA_SALIDA_PLUS_3_HORAS);
             fail();
-        } catch (ExcepcionVehiculoNoSeEncuentraEnParqueadero e){
+        } catch (ExcepcionVehiculoNoSeEncuentraEnParqueadero e) {
             //assert
             assertEquals(VEHICULO_NO_ESTA_EN_PARQUEADERO, e.getMessage());
         }

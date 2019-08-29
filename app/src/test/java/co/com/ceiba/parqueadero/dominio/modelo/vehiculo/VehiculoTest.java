@@ -17,7 +17,7 @@ public class VehiculoTest {
 
 
     @Test
-    public void validarPlacaNullObligatoriaTest(){
+    public void validarPlacaNullObligatoriaTest() {
         //arrange
         VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
         vehiculoTestDataBuilder.conPlaca(null);
@@ -25,14 +25,14 @@ public class VehiculoTest {
         try {
             vehiculoTestDataBuilder.build();
             fail();
-        } catch (ExcepcionValorObligaorio e){
+        } catch (ExcepcionValorObligaorio e) {
             //assert
             assertEquals(LA_PLACA_ES_OBLIGATORIA, e.getMessage());
         }
     }
 
     @Test
-    public void validarPlacaVaciaObligatoriaTest(){
+    public void validarPlacaVaciaObligatoriaTest() {
         //arrange
         VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
         vehiculoTestDataBuilder.conPlaca("");
@@ -40,23 +40,23 @@ public class VehiculoTest {
         try {
             vehiculoTestDataBuilder.build();
             fail();
-        } catch (ExepcionLongitudValor e){
+        } catch (ExepcionLongitudValor e) {
             //assert
             assertEquals(LA_PLACA_DEBE_TENER_MINIMO_LETRAS, e.getMessage());
         }
     }
 
     @Test
-    public void validarCilindrajeTipoMotoTest(){
+    public void validarCilindrajeTipoMotoTest() {
         //arrange
         VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
         vehiculoTestDataBuilder.conTipo(TipoVehiculo.MOTO)
-            .conCilindraje(0);
+                .conCilindraje(0);
         //act
         try {
             vehiculoTestDataBuilder.build();
             fail();
-        } catch (ExcepcionValorObligaorio e){
+        } catch (ExcepcionValorObligaorio e) {
             //assert
             assertEquals(EL_CILINDRAJE_ES_OBLIGATORIO, e.getMessage());
         }

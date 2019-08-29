@@ -2,8 +2,6 @@ package co.com.ceiba.parqueadero.dominio.servicio.politicas;
 
 import org.junit.Test;
 
-import co.com.ceiba.parqueadero.dominio.servicio.politicas.PoliticaPlaca;
-
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 

@@ -12,14 +12,13 @@ import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
 import co.com.ceiba.parqueadero.testdatabuilder.HistorialTestDataBuilder;
 import co.com.ceiba.parqueadero.testdatabuilder.VehiculoTestDataBuilder;
 
-import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static org.mockito.ArgumentMatchers.notNull;
 import static org.mockito.Mockito.when;
 
 public class ServicioIngresarVehiculoTest {
 
-    private static final LocalDateTime FECHA_INGRESO_HABIL = LocalDateTime.of(2019,8,29,8,10);
+    private static final LocalDateTime FECHA_INGRESO_HABIL = LocalDateTime.of(2019, 8, 29, 8, 10);
 
     @Test
     public void ingresarVehiculoTest() {

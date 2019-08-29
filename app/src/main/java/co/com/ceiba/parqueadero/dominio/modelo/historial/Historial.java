@@ -21,7 +21,7 @@ public class Historial {
         this.cobro = cobro;
     }
 
-    public Historial(Vehiculo vehiculo, LocalDateTime fechaIngreso){
+    public Historial(Vehiculo vehiculo, LocalDateTime fechaIngreso) {
         this(vehiculo, fechaIngreso, null, 0);
     }
 

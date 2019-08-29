@@ -12,7 +12,7 @@ public class PoliticaCupoCarro {
         this.repositorioHistorial = repositorioHistorial;
     }
 
-    public boolean validar(){
+    public boolean validar() {
         long carrosParqueados = repositorioHistorial.contarVehiculosParqueadosPorTipo(TipoVehiculo.CARRO);
         return carrosParqueados < MAXIMO_CUPO_CARRO;
     }

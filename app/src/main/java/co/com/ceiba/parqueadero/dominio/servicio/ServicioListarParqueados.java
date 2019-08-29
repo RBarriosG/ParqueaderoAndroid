@@ -13,7 +13,7 @@ public class ServicioListarParqueados {
         this.repositorioHistorial = repositorioHistorial;
     }
 
-    public List<Parqueo> ejecutar(){
+    public List<Parqueo> ejecutar() {
         return this.repositorioHistorial.listarVehiculosEnElParqueadero();
     }
 

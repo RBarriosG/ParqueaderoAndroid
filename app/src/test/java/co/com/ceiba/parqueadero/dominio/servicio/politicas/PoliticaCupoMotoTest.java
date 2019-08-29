@@ -5,7 +5,6 @@ import org.mockito.Mockito;
 
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
-import co.com.ceiba.parqueadero.dominio.servicio.politicas.PoliticaCupoMoto;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
@@ -23,7 +22,7 @@ public class PoliticaCupoMotoTest {
         boolean cupoDisponible = politicaCupoMoto.validar();
         //assert
         assertTrue(cupoDisponible);
-}
+    }
 
     @Test
     public void cupoNoDisponibleTest() {

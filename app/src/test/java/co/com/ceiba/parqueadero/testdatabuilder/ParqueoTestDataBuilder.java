@@ -14,22 +14,22 @@ public class ParqueoTestDataBuilder {
 
     private LocalDateTime fechaIngreso;
 
-    public ParqueoTestDataBuilder(){
+    public ParqueoTestDataBuilder() {
         this.vehiculo = VEHICULO_PRUEBA;
         this.fechaIngreso = FECHA_INGRESO_PRUEBA;
     }
 
-    public ParqueoTestDataBuilder conVehiculo(Vehiculo vehiculo){
+    public ParqueoTestDataBuilder conVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
         return this;
     }
 
-    public ParqueoTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso){
+    public ParqueoTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
         return this;
     }
 
-    public Parqueo build(){
+    public Parqueo build() {
         return new Parqueo(this.vehiculo, this.fechaIngreso);
     }
 

@@ -13,7 +13,6 @@ import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
-import co.com.ceiba.parqueadero.dominio.servicio.politicas.PoliticaIngresoVehiculo;
 import co.com.ceiba.parqueadero.testdatabuilder.HistorialTestDataBuilder;
 import co.com.ceiba.parqueadero.testdatabuilder.VehiculoTestDataBuilder;
 
@@ -22,8 +21,8 @@ import static org.mockito.Mockito.when;
 
 public class PoliticaIngresoVehiculoTest {
 
-    private static final LocalDateTime FECHA_INGRESO_HABIL = LocalDateTime.of(2019,8,29,7,25);
-    private static final LocalDateTime FECHA_INGRESO_NO_HABIL = LocalDateTime.of(2019,8,26,7,25);
+    private static final LocalDateTime FECHA_INGRESO_HABIL = LocalDateTime.of(2019, 8, 29, 7, 25);
+    private static final LocalDateTime FECHA_INGRESO_NO_HABIL = LocalDateTime.of(2019, 8, 26, 7, 25);
 
     private static final String CUPO_MAXIMO_DE_CARROS = "Cupo maximo de carros";
     private static final String CUPO_MAXIMO_DE_MOTOS = "Cupo maximo de motos";

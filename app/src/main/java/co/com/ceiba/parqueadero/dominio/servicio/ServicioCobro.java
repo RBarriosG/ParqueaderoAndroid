@@ -7,7 +7,7 @@ import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 
 public class ServicioCobro {
 
-    public double calcularCobro(Vehiculo vehiculo, LocalDateTime fechaIngreso, LocalDateTime fechaSalida){
+    public double calcularCobro(Vehiculo vehiculo, LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
         PoliticaCobro politicaCobro = PoliticaCobro.crear(vehiculo);
         return politicaCobro.calcularCobro(fechaIngreso, fechaSalida);
     }

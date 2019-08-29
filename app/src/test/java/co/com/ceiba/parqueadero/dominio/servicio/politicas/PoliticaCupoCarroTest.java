@@ -5,7 +5,6 @@ import org.mockito.Mockito;
 
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
-import co.com.ceiba.parqueadero.dominio.servicio.politicas.PoliticaCupoCarro;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
@@ -17,7 +16,7 @@ public class PoliticaCupoCarroTest {
     public void cupoDisponibleTest() {
         //arrange
         RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
-        when(repositorioHistorial.contarVehiculosParqueadosPorTipo(TipoVehiculo.CARRO)).thenReturn(15l);
+        when(repositorioHistorial.contarVehiculosParqueadosPorTipo(TipoVehiculo.CARRO)).thenReturn(15L);
         PoliticaCupoCarro politicaCupoCarro = new PoliticaCupoCarro(repositorioHistorial);
         //act
         boolean cupoDisponible = politicaCupoCarro.validar();
@@ -29,7 +28,7 @@ public class PoliticaCupoCarroTest {
     public void cupoNoDisponibleTest() {
         //arrange
         RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
-        when(repositorioHistorial.contarVehiculosParqueadosPorTipo(TipoVehiculo.CARRO)).thenReturn(20l);
+        when(repositorioHistorial.contarVehiculosParqueadosPorTipo(TipoVehiculo.CARRO)).thenReturn(20L);
         PoliticaCupoCarro politicaCupoCarro = new PoliticaCupoCarro(repositorioHistorial);
         //act
         boolean cupoDisponible = politicaCupoCarro.validar();

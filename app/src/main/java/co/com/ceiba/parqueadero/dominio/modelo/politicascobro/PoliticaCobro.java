@@ -12,15 +12,15 @@ public abstract class PoliticaCobro {
     private static final int HORAS_DIA = 24;
     private static final int MILISEGUNDOS_HORA = 1000 * 3600;
 
-    public static PoliticaCobro crear(Vehiculo vehiculo){
-        if(vehiculo.getTipo() == TipoVehiculo.CARRO){
+    public static PoliticaCobro crear(Vehiculo vehiculo) {
+        if (vehiculo.getTipo() == TipoVehiculo.CARRO) {
             return new PoliticaCobroCarro();
         } else {
             return new PoliticaCobroMoto(vehiculo);
         }
     }
 
-    public double calcularCobro(LocalDateTime fechaIngreso, LocalDateTime fechaSalida){
+    public double calcularCobro(LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
         long totalHoras = calcularTotalHoras(fechaIngreso, fechaSalida);
         long dias = calcularDias(totalHoras);
         long horas = calcularHorasUltimoDia(totalHoras);
@@ -37,16 +37,17 @@ public abstract class PoliticaCobro {
     }
 
     private long calcularDias(long totalHoras) {
-        long totalDias = totalHoras/HORAS_DIA;
+        long totalDias = totalHoras / HORAS_DIA;
         return calularTotalHorasExtra(totalHoras) >= REGLA_HORA ? ++totalDias : totalDias;
     }
 
-    private long calcularTotalHoras(LocalDateTime fechaIngreso, LocalDateTime fechaSalida){
+    private long calcularTotalHoras(LocalDateTime fechaIngreso, LocalDateTime fechaSalida) {
         long milisegundos = Duration.between(fechaIngreso, fechaSalida).toMillis();
-        return (long) Math.ceil((double) milisegundos/MILISEGUNDOS_HORA);
+        return (long) Math.ceil((double) milisegundos / MILISEGUNDOS_HORA);
     }
 
     public abstract double getValorDia();
+
     public abstract double getValorHora();
 
 }

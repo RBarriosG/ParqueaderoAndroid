@@ -34,9 +34,9 @@ public class ServcicioListarHistorialTest {
 
     private static List<Historial> crearHistoriales() {
         List<Historial> historiales = new ArrayList<>();
-        for (int i = 0; i< ServcicioListarHistorialTest.TAMANIO_REGISTRO; i++){
-            Vehiculo vehiculo = new VehiculoTestDataBuilder().conPlaca(PLACA_GENERAL+i).build();
-            LocalDateTime fechaIngreso = LocalDateTime.of(2019,8,29,8,20).plusHours(i);
+        for (int i = 0; i < ServcicioListarHistorialTest.TAMANIO_REGISTRO; i++) {
+            Vehiculo vehiculo = new VehiculoTestDataBuilder().conPlaca(PLACA_GENERAL + i).build();
+            LocalDateTime fechaIngreso = LocalDateTime.of(2019, 8, 29, 8, 20).plusHours(i);
             historiales.add(new Historial(vehiculo, fechaIngreso));
         }
         return historiales;

@@ -13,7 +13,7 @@ public class ServicioListarHistorial {
         this.repositorioHistorial = repositorioHistorial;
     }
 
-    public List<Historial> ejecutar(){
+    public List<Historial> ejecutar() {
         return this.repositorioHistorial.listar();
     }
 
