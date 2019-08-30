@@ -10,11 +10,11 @@ import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
 import co.com.ceiba.parqueadero.persistencia.conversor.ConversorHistorial;
 import co.com.ceiba.parqueadero.persistencia.conversor.ConversorParqueo;
 
-public class HistorialImplementacion implements RepositorioHistorial {
+public class HistorialImplementacionLocal implements RepositorioHistorial {
 
     private final HistorialDao historialDao;
 
-    public HistorialImplementacion(HistorialDao historialDao) {
+    public HistorialImplementacionLocal(HistorialDao historialDao) {
         this.historialDao = historialDao;
     }
 

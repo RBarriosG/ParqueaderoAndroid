@@ -4,11 +4,15 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
+
 public class ParqueadoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ParqueadoViewModel() {
+    private RepositorioHistorial repositorioHistorial;
+
+    public ParqueadoViewModel(RepositorioHistorial repositorioHistorial) {
         mText = new MutableLiveData<>();
         mText.setValue(" Este es parqueados Fragment");
     }

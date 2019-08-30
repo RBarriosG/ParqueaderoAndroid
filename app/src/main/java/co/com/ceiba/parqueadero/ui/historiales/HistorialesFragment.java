@@ -23,13 +23,7 @@ public class HistorialesFragment extends Fragment {
         historialesViewModel =
                 ViewModelProviders.of(this).get(HistorialesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_historiales, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        historialesViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
 }

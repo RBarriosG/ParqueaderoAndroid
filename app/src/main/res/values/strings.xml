@@ -11,5 +11,12 @@
     <string name="menu_parqueados">Parqueados</string>
     <string name="menu_historial">Historial de vehiculos</string>
     <string name="descripcion_fab">Boton flotante para agregar vehiculos al parqueadero</string>
+    <string name="placa">PLACA:</string>
+    <string name="tipo">TIPO:</string>
+    <string name="cilindraje">CILINDRAJE:</string>
+    <string name="fecha_de_ingreso">FECHA DE INGRESO:</string>
+    <string name="fecha_de_salida">FECHA DE SALIDA:</string>
+    <string name="total">TOTAL:</string>
+    <string name="imagen_del_vehiculo_correspondiente">Imagen del vehiculo correspondiente</string>
 
 </resources>
