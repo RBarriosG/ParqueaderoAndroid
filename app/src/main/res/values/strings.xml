@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Parqueadero</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Parqueadero ADN</string>
+    <string name="nav_header_subtitle">rodolfo.barrios@ceiba.com.co</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_parqueados">Parqueados</string>
+    <string name="menu_historial">Historial de vehiculos</string>
+    <string name="descripcion_fab">Boton flotante para agregar vehiculos al parqueadero</string>
+
 </resources>
