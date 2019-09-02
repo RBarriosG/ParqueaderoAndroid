@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import java.time.LocalDateTime;
 
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
 import co.com.ceiba.parqueadero.testdatabuilder.HistorialTestDataBuilder;
@@ -29,7 +28,7 @@ public class ServicioIngresarVehiculoTest {
         when(repositorioHistorial.guardar(notNull())).thenReturn(historial);
         ServicioIngresarVehiculo servicioIngresarVehiculo = new ServicioIngresarVehiculo(repositorioHistorial);
         //act
-        Parqueo parqueo = servicioIngresarVehiculo.ejecutar(vehiculo, FECHA_INGRESO_HABIL);
+        co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo parqueo = servicioIngresarVehiculo.ejecutar(vehiculo, FECHA_INGRESO_HABIL);
         //assert
         assertNotNull(parqueo);
     }

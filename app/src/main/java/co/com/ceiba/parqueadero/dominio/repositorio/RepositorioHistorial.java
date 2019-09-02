@@ -15,7 +15,7 @@ public interface RepositorioHistorial {
 
     Historial actualizar(Historial historial);
 
-    List<Parqueo> listarVehiculosEnElParqueadero();
+    List<Parqueo>listarVehiculosEnElParqueadero();
 
     Optional<Historial> obtenerHistorialActualVehiculoParqueado(String placa);
 

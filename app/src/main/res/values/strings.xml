@@ -18,5 +18,9 @@
     <string name="fecha_de_salida">FECHA DE SALIDA:</string>
     <string name="total">TOTAL:</string>
     <string name="imagen_del_vehiculo_correspondiente">Imagen del vehiculo correspondiente</string>
+    <string name="salida">Salida</string>
+    <string name="placa_vehiculo">Placa vehiculo</string>
+    <string name="carro">CARRO</string>
+    <string name="moto">MOTO</string>
 
 </resources>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import co.com.ceiba.parqueadero.R;
 
-public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+public class RecyclerViewHolderHistoriales extends RecyclerView.ViewHolder {
 
     TextView textPlaca;
 
@@ -25,7 +25,7 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imagenTipoVehiculo;
     
-    public RecyclerViewHolder(@NonNull View itemView) {
+    public RecyclerViewHolderHistoriales(@NonNull View itemView) {
         super(itemView);
 
         textPlaca = itemView.findViewById(R.id.historialesTextPlaca);

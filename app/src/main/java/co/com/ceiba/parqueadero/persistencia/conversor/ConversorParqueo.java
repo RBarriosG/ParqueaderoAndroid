@@ -14,7 +14,8 @@ public class ConversorParqueo {
     public static List<Parqueo> convertirADominio(List<HistorialEntity> historialEntities) {
         List<Parqueo> parqueados = new ArrayList<>();
         for (int i = 0; i < historialEntities.size(); i++) {
-            parqueados.add(new Parqueo(historialEntities.get(i).getVehiculo(), historialEntities.get(i).getFechaIngreso()));
+            parqueados.add(new Parqueo(ConversorVehiculo.aVehiculo(historialEntities.get(i).getVehiculo()),
+                    ConversorLocalDateTime.aDato(historialEntities.get(i).getFechaIngreso())));
         }
         return parqueados;
     }

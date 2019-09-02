@@ -3,11 +3,8 @@ package co.com.ceiba.parqueadero.persistencia.entidad;
 import androidx.annotation.NonNull;
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
-import java.time.LocalDateTime;
-
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 
 @Entity(tableName = "historial")
 public class HistorialEntity {
@@ -16,45 +13,56 @@ public class HistorialEntity {
     @NonNull
     private Long id;
 
-    private LocalDateTime fechaIngreso;
+    private String fechaIngreso;
 
-    private LocalDateTime fechaSalida;
+    private String fechaSalida;
 
     @Embedded
-    private Vehiculo vehiculo;
+    private VehiculoMap vehiculo;
 
     private double cobro;
 
-    public HistorialEntity(){}
+    @Ignore
+    public HistorialEntity() {
+    }
 
-    public HistorialEntity(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, Vehiculo vehiculo, double cobro) {
+    public HistorialEntity(String fechaIngreso, String fechaSalida, VehiculoMap vehiculo, double cobro) {
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
         this.vehiculo = vehiculo;
         this.cobro = cobro;
     }
 
-    public LocalDateTime getFechaIngreso() {
+    @NonNull
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(@NonNull Long id) {
+        this.id = id;
+    }
+
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(LocalDateTime fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public LocalDateTime getFechaSalida() {
+    public String getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(LocalDateTime fechaSalida) {
+    public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
 
-    public Vehiculo getVehiculo() {
+    public VehiculoMap getVehiculo() {
         return vehiculo;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
+    public void setVehiculo(VehiculoMap vehiculo) {
         this.vehiculo = vehiculo;
     }
 

@@ -12,11 +12,13 @@ public class ConversorHistorial {
     }
 
     public static HistorialEntity convertirAEntidad(Historial historial) {
-        return new HistorialEntity(historial.getFechaIngreso(), historial.getFechaSalida(), historial.getVehiculo(), historial.getCobro());
+        return new HistorialEntity(ConversorLocalDateTime.aString(historial.getFechaIngreso()),
+                ConversorLocalDateTime.aString(historial.getFechaSalida()), ConversorVehiculo.aVehiculoMap(historial.getVehiculo()), historial.getCobro());
     }
 
     public static Historial convertirADominio(HistorialEntity historialEntity) {
-        return new Historial(historialEntity.getVehiculo(), historialEntity.getFechaIngreso(), historialEntity.getFechaSalida(), historialEntity.getCobro());
+        return new Historial(ConversorVehiculo.aVehiculo(historialEntity.getVehiculo()), ConversorLocalDateTime.aDato(historialEntity.getFechaIngreso()),
+                ConversorLocalDateTime.aDato(historialEntity.getFechaSalida()), historialEntity.getCobro());
     }
 
     public static List<Historial> convertirADominio(List<HistorialEntity> historialEntities) {

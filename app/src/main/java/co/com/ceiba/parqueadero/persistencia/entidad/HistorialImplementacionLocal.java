@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
-import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
 import co.com.ceiba.parqueadero.persistencia.conversor.ConversorHistorial;
 import co.com.ceiba.parqueadero.persistencia.conversor.ConversorParqueo;
+import co.com.ceiba.parqueadero.persistencia.conversor.ConversorTipoVehiculo;
 
 public class HistorialImplementacionLocal implements RepositorioHistorial {
 
@@ -25,16 +25,18 @@ public class HistorialImplementacionLocal implements RepositorioHistorial {
 
     @Override
     public Historial guardar(Historial historial) {
-        return ConversorHistorial.convertirADominio(historialDao.guardar(ConversorHistorial.convertirAEntidad(historial)));
+        historialDao.guardar(ConversorHistorial.convertirAEntidad(historial));
+        return historial;
     }
 
     @Override
     public Historial actualizar(Historial historial) {
-        return ConversorHistorial.convertirADominio(historialDao.guardar(ConversorHistorial.convertirAEntidad(historial)));
+        historialDao.guardar(ConversorHistorial.convertirAEntidad(historial));
+        return historial;
     }
 
     @Override
-    public List<Parqueo> listarVehiculosEnElParqueadero() {
+    public List<co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo> listarVehiculosEnElParqueadero() {
         return ConversorParqueo.convertirADominio(historialDao.listarVehiculosEnElParqueadero());
     }
 
@@ -46,6 +48,7 @@ public class HistorialImplementacionLocal implements RepositorioHistorial {
 
     @Override
     public long contarVehiculosParqueadosPorTipo(TipoVehiculo tipo) {
-        return historialDao.contarVehiculosParqueadosPorTipo(tipo);
+        String tipoV = ConversorTipoVehiculo.aString(tipo);
+        return historialDao.contarVehiculosParqueadosPorTipo(tipoV);
     }
 }
