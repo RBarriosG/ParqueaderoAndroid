@@ -15,7 +15,7 @@ public class HistorialesViewModel extends ViewModel {
         this.repositorioHistorial = repositorioHistorial;
     }
 
-    public List<Historial> listar() {
+    List<Historial> listar() {
         return repositorioHistorial.listar();
     }
 

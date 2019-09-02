@@ -8,12 +8,12 @@ public class ConversorVehiculo {
     private ConversorVehiculo() {
     }
 
-    public static Vehiculo aVehiculo(VehiculoMap vehiculoMap) {
+    static Vehiculo aVehiculo(VehiculoMap vehiculoMap) {
         return vehiculoMap == null ? null : new Vehiculo(vehiculoMap.getPlaca(),
                 vehiculoMap.getCilindraje(), ConversorTipoVehiculo.aTipoVehiculo(vehiculoMap.getTipo()));
     }
 
-    public static VehiculoMap aVehiculoMap(Vehiculo vehiculo) {
+    static VehiculoMap aVehiculoMap(Vehiculo vehiculo) {
         return vehiculo == null ? null : new VehiculoMap(vehiculo.getPlaca(), vehiculo.getCilindraje(),
                 ConversorTipoVehiculo.aString(vehiculo.getTipo()));
     }

@@ -31,8 +31,6 @@ public class HistorialesFragment extends Fragment {
 
     private List<Historial> historiales = new ArrayList<>();
 
-    private RecyclerView recyclerView;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +41,7 @@ public class HistorialesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         historialesViewModel = new ViewModelProvider(this, viewModelFactory).get(HistorialesViewModel.class);
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                historiales = historialesViewModel.listar();
-            }
-        });
+        AsyncTask.execute(() -> historiales = historialesViewModel.listar());
 
         View root = inflater.inflate(R.layout.fragment_historiales, container, false);
         actualizarRecycler(historiales, root);
@@ -57,7 +50,7 @@ public class HistorialesFragment extends Fragment {
 
     private void actualizarRecycler(List<Historial> historiales, View view){
         RecyclerAdapterHistoriales adapter = new RecyclerAdapterHistoriales(getContext(), historiales);
-        recyclerView = view.findViewById(R.id.recyclerHistoriales);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerHistoriales);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

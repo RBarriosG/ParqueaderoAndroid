@@ -24,7 +24,7 @@ public class RecyclerViewHolderParqueado extends RecyclerView.ViewHolder {
 
     Button botonSalida;
 
-    public RecyclerViewHolderParqueado(@NonNull View itemView) {
+    RecyclerViewHolderParqueado(@NonNull View itemView) {
         super(itemView);
 
         textPlaca = itemView.findViewById(R.id.parqueadosTextPlaca);

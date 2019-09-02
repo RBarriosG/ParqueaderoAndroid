@@ -1,15 +1,19 @@
 package co.com.ceiba.parqueadero.ui.parqueado.dialogos;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.RadioGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 import co.com.ceiba.parqueadero.R;
@@ -18,25 +22,34 @@ public class DialogoAgregarParqueo extends DialogFragment {
 
     private View dialogView;
 
+    public TextInputLayout placaInput;
 
+    public TextInputEditText placaEditText;
+
+    public TextInputLayout cilindrajeInput;
+
+    public TextInputEditText cilindrajeEditText;
+
+    public RadioGroup radioGrupoTipo;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
         dialogView = getActivity().getLayoutInflater().inflate(R.layout.dialogo_agregar_parqueo, null);
 
         builder.setView(dialogView);
 
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
+        builder.setNegativeButton("Cancelar", (dialogInterface, i) -> dialogInterface.cancel());
 
         builder.setPositiveButton("Guardar", null);
+
+        placaInput = dialogView.findViewById(R.id.parqueadosTilPlaca);
+        placaEditText = dialogView.findViewById(R.id.parqueadosTiePlaca);
+        cilindrajeInput = dialogView.findViewById(R.id.parqueadosTilCilindraje);
+        cilindrajeEditText = dialogView.findViewById(R.id.parqueadosTieCilindraje);
+        radioGrupoTipo = dialogView.findViewById(R.id.parqueosRgTipo);
 
         return builder.create();
 

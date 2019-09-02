@@ -2,7 +2,6 @@ package co.com.ceiba.parqueadero.ui.parqueado.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -24,7 +23,7 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
 
     private List<Parqueo> parqueados;
 
-    public RecyclerAdapterParqueado(Context context, List<Parqueo> parqueados){
+    public RecyclerAdapterParqueado(Context context, List<Parqueo> parqueados) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.parqueados = parqueados;
@@ -48,12 +47,7 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
         holder.textCilindraje.setText(parqueados.get(position).getVehiculo().getCilindraje());
         holder.textFechaIngreso.setText(String.valueOf(parqueados.get(position).getFechaIngreso()));
 
-        holder.botonSalida.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                salidaVehiculo();
-            }
-        });
+        holder.botonSalida.setOnClickListener(view -> salidaVehiculo());
     }
 
     @Override
@@ -61,7 +55,7 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
         return parqueados.size();
     }
 
-    private void salidaVehiculo(){
+    private void salidaVehiculo() {
 
     }
 

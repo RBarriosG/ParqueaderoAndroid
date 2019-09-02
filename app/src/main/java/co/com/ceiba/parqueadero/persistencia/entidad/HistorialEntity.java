@@ -22,10 +22,6 @@ public class HistorialEntity {
 
     private double cobro;
 
-    @Ignore
-    public HistorialEntity() {
-    }
-
     public HistorialEntity(String fechaIngreso, String fechaSalida, VehiculoMap vehiculo, double cobro) {
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;

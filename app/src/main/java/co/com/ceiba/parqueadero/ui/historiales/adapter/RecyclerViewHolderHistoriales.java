@@ -25,7 +25,7 @@ public class RecyclerViewHolderHistoriales extends RecyclerView.ViewHolder {
 
     ImageView imagenTipoVehiculo;
     
-    public RecyclerViewHolderHistoriales(@NonNull View itemView) {
+    RecyclerViewHolderHistoriales(@NonNull View itemView) {
         super(itemView);
 
         textPlaca = itemView.findViewById(R.id.historialesTextPlaca);

@@ -13,7 +13,7 @@ public class ConversorTipoVehiculo {
         return tipo == TipoVehiculo.CARRO ? CARRO : MOTO;
     }
 
-    public static TipoVehiculo aTipoVehiculo(String tipo){
+    static TipoVehiculo aTipoVehiculo(String tipo){
         return tipo.equalsIgnoreCase(CARRO) ? TipoVehiculo.CARRO : TipoVehiculo.MOTO;
     }
 
