@@ -1,7 +1,0 @@
-
-dsquid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8îÜñ¢Î-
-dsquid:UselessImportCheck	"9Remove this unused import 'androidx.annotation.Nullable'.(¾Èêš8îÜñ¢Î-
-squid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "root".(¡ð¶Õþÿÿÿÿ8îÜñ¢Î-
-hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉþÿÿÿÿ8îÜñ¢Î-
-zsquid:S1450"cRemove the "historialesViewModel" field and declare it as a local variable in the relevant methods.(ª—è 
-Vsquid:S1068"8Remove this unused "historialesViewModel" private field.(ª—è 8îÜñ¢Î-

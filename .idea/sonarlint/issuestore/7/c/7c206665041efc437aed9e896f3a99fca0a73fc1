@@ -1,7 +1,0 @@
-
-dsquid:UselessImportCheck
-"9Remove this unused import 'androidx.annotation.Nullable'.(¾Èêš8“¼ÿ—Î-
-dsquid:UselessImportCheck"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8“¼ÿ—Î-
-xsquid:S1450"aRemove the "parqueadoViewModel" field and declare it as a local variable in the relevant methods.(óÅ‰î
-hsquid:UselessImportCheck"8Remove this unused import 'androidx.lifecycle.Observer'.(ÒÁˆÉþÿÿÿÿ8“¼ÿ—Î-
-Tsquid:S1068"6Remove this unused "parqueadoViewModel" private field.(óÅ‰î8“¼ÿ—Î-
