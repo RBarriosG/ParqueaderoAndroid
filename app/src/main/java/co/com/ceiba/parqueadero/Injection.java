@@ -9,7 +9,7 @@ import co.com.ceiba.parqueadero.ui.ViewModelFactory;
 
 public class Injection {
 
-    public static RepositorioHistorial provideRepositorioHistorial(Context context){
+    private static RepositorioHistorial provideRepositorioHistorial(Context context){
         BaseDeDatosParqueadero baseDeDatosParqueadero = BaseDeDatosParqueadero.getInstance(context);
         return new HistorialImplementacionLocal(baseDeDatosParqueadero.historialDao());
     }

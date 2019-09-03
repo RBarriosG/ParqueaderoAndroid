@@ -50,7 +50,7 @@ public class ParqueadoFragment extends Fragment {
 
         efb.setOnClickListener(view -> {
             guardar();
-            adapter.notifyDataSetChanged();
+            adapter.setListaParqueos(activity.listarParqueados());
         });
 
         return root;
@@ -58,6 +58,7 @@ public class ParqueadoFragment extends Fragment {
 
     private void actualizarRecycler() {
         adapter = new RecyclerAdapterParqueado(activity, activity.listarParqueados());
+        adapter.setListaParqueos(activity.listarParqueados());
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));

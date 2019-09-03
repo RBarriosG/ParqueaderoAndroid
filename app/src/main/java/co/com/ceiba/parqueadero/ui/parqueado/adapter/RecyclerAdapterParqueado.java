@@ -3,7 +3,6 @@ package co.com.ceiba.parqueadero.ui.parqueado.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +48,7 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
         holder.textCilindraje.setText(String.valueOf(parqueados.get(position).getVehiculo().getCilindraje()));
         holder.textFechaIngreso.setText(ConversorLocalDateTime.aString(parqueados.get(position).getFechaIngreso()));
 
-        holder.botonSalida.setOnClickListener(view -> salidaVehiculo());
+        holder.botonSalida.setOnClickListener(view -> salidaVehiculo(position));
     }
 
     @Override
@@ -57,8 +56,14 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
         return parqueados.size();
     }
 
-    private void salidaVehiculo() {
-        Toast.makeText(context, "Codificando Salida", Toast.LENGTH_SHORT).show();
+    public void setListaParqueos(List<Parqueo> parqueados){
+        this.parqueados = parqueados;
+        notifyDataSetChanged();
+    }
+
+    private void salidaVehiculo(int posicion) {
+        Parqueo parqueo = parqueados.get(posicion);
+
     }
 
 }

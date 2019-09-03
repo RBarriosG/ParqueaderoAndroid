@@ -48,6 +48,7 @@
         android:id="@+id/recyclerParqueados"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        tools:listitem="@layout/item_parqueo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"

@@ -3,7 +3,6 @@ package co.com.ceiba.parqueadero.persistencia.entidad;
 import androidx.annotation.NonNull;
 import androidx.room.Embedded;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "historial")
