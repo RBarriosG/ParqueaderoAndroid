@@ -3,6 +3,7 @@ package co.com.ceiba.parqueadero.ui.parqueado.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import java.util.List;
 import co.com.ceiba.parqueadero.R;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
+import co.com.ceiba.parqueadero.persistencia.conversor.ConversorLocalDateTime;
 
 public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewHolderParqueado> {
 
@@ -44,8 +46,8 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
                         context.getDrawable(R.drawable.ic_motocicleta));
         holder.textPlaca.setText(parqueados.get(position).getVehiculo().getPlaca());
         holder.textTipo.setText(parqueados.get(position).getVehiculo().getTipo() == TipoVehiculo.CARRO ? CARRO : MOTO);
-        holder.textCilindraje.setText(parqueados.get(position).getVehiculo().getCilindraje());
-        holder.textFechaIngreso.setText(String.valueOf(parqueados.get(position).getFechaIngreso()));
+        holder.textCilindraje.setText(String.valueOf(parqueados.get(position).getVehiculo().getCilindraje()));
+        holder.textFechaIngreso.setText(ConversorLocalDateTime.aString(parqueados.get(position).getFechaIngreso()));
 
         holder.botonSalida.setOnClickListener(view -> salidaVehiculo());
     }
@@ -56,7 +58,7 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
     }
 
     private void salidaVehiculo() {
-
+        Toast.makeText(context, "Codificando Salida", Toast.LENGTH_SHORT).show();
     }
 
 }

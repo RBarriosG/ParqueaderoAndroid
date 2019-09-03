@@ -22,5 +22,8 @@
     <string name="placa_vehiculo">Placa vehiculo</string>
     <string name="carro">CARRO</string>
     <string name="moto">MOTO</string>
+    <string name="agregar_vehiculo">Agregar vehiculo</string>
+    <string name="ingrese_placa_a_buscar">Ingrese placa a buscar</string>
+    <string name="boton_de_busqueda_parqueados">boton de busqueda parqueados</string>
 
 </resources>

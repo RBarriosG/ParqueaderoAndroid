@@ -46,7 +46,7 @@ public class RecyclerAdapterHistoriales extends RecyclerView.Adapter<RecyclerVie
         holder.textTipo.setText(historiales.get(position).getVehiculo().getTipo() == TipoVehiculo.CARRO ? CARRO : MOTO);
         holder.textCilindraje.setText(String.valueOf(historiales.get(position).getVehiculo().getCilindraje()));
         holder.textFechaIngreso.setText(ConversorLocalDateTime.aString(historiales.get(position).getFechaIngreso()));
-        holder.textFechaSalida.setText(String.valueOf(historiales.get(position).getFechaSalida()));
+        holder.textFechaSalida.setText(ConversorLocalDateTime.aString(historiales.get(position).getFechaSalida()));
         holder.textCosto.setText(String.format("$ %s", historiales.get(position).getCobro()));
     }
 

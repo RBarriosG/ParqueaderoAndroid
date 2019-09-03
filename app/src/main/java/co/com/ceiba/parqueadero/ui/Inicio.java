@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Menu;
 
 import java.util.ArrayList;
@@ -24,7 +25,9 @@ import java.util.List;
 import co.com.ceiba.parqueadero.Injection;
 import co.com.ceiba.parqueadero.R;
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
+import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.ui.historiales.HistorialesViewModel;
+import co.com.ceiba.parqueadero.ui.parqueado.ParqueadoViewModel;
 
 public class Inicio extends AppCompatActivity {
 
@@ -32,7 +35,11 @@ public class Inicio extends AppCompatActivity {
 
     private static HistorialesViewModel historialesViewModel;
 
+    public static ParqueadoViewModel parqueadoViewModel;
+
     private List<Historial> historiales = new ArrayList<>();
+
+    private List<Parqueo> parqueos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +50,7 @@ public class Inicio extends AppCompatActivity {
 
         ViewModelFactory viewModelFactory = Injection.provideViewModelFactory(this);
         historialesViewModel = new ViewModelProvider(this, viewModelFactory).get(HistorialesViewModel.class);
+        parqueadoViewModel = new ViewModelProvider(this, viewModelFactory).get(ParqueadoViewModel.class);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -73,7 +81,14 @@ public class Inicio extends AppCompatActivity {
 
     public List<Historial> listarHistoriales(){
         AsyncTask.execute(() -> historiales = historialesViewModel.listar());
+        Log.i("listarHistoriales", historiales.toString());
         return historiales;
+    }
+
+    public List<Parqueo> listarParqueados(){
+        AsyncTask.execute(() -> parqueos = parqueadoViewModel.listarParqueados());
+        Log.i("listarParqueados", parqueos.toString());
+        return parqueos;
     }
 
 }
