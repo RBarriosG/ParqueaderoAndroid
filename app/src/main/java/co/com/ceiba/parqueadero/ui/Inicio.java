@@ -1,7 +1,9 @@
 package co.com.ceiba.parqueadero.ui;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,11 +18,21 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import co.com.ceiba.parqueadero.Injection;
 import co.com.ceiba.parqueadero.R;
+import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
+import co.com.ceiba.parqueadero.ui.historiales.HistorialesViewModel;
 
 public class Inicio extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    private static HistorialesViewModel historialesViewModel;
+
+    private List<Historial> historiales = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +40,9 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ViewModelFactory viewModelFactory = Injection.provideViewModelFactory(this);
+        historialesViewModel = new ViewModelProvider(this, viewModelFactory).get(HistorialesViewModel.class);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -55,4 +70,10 @@ public class Inicio extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public List<Historial> listarHistoriales(){
+        AsyncTask.execute(() -> historiales = historialesViewModel.listar());
+        return historiales;
+    }
+
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @Dao
 public interface HistorialDao {
 
-    @Query("SELECT * FROM historial GROUP BY placa")
+    @Query("SELECT * FROM historial WHERE fechaSalida != null GROUP BY placa")
     List<HistorialEntity> listar();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

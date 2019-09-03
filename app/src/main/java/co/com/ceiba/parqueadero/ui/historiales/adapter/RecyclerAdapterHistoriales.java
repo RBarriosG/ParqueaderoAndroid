@@ -12,6 +12,7 @@ import java.util.List;
 import co.com.ceiba.parqueadero.R;
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
+import co.com.ceiba.parqueadero.persistencia.conversor.ConversorLocalDateTime;
 
 public class RecyclerAdapterHistoriales extends RecyclerView.Adapter<RecyclerViewHolderHistoriales> {
 
@@ -43,8 +44,8 @@ public class RecyclerAdapterHistoriales extends RecyclerView.Adapter<RecyclerVie
                         context.getDrawable(R.drawable.ic_motocicleta));
         holder.textPlaca.setText(historiales.get(position).getVehiculo().getPlaca());
         holder.textTipo.setText(historiales.get(position).getVehiculo().getTipo() == TipoVehiculo.CARRO ? CARRO : MOTO);
-        holder.textCilindraje.setText(historiales.get(position).getVehiculo().getCilindraje());
-        holder.textFechaIngreso.setText(String.valueOf(historiales.get(position).getFechaIngreso()));
+        holder.textCilindraje.setText(String.valueOf(historiales.get(position).getVehiculo().getCilindraje()));
+        holder.textFechaIngreso.setText(ConversorLocalDateTime.aString(historiales.get(position).getFechaIngreso()));
         holder.textFechaSalida.setText(String.valueOf(historiales.get(position).getFechaSalida()));
         holder.textCosto.setText(String.format("$ %s", historiales.get(position).getCobro()));
     }

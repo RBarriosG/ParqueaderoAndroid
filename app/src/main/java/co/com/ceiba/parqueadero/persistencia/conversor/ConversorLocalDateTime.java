@@ -7,13 +7,13 @@ public class ConversorLocalDateTime {
 
     private ConversorLocalDateTime(){}
 
-    private static DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    static LocalDateTime aDato(String datoString){
-        return datoString == null ? null : LocalDateTime.parse(datoString);
+    public static LocalDateTime aDato(String datoString){
+        return datoString == null ? null : LocalDateTime.parse(datoString, formater);
     }
 
-    static String aString(LocalDateTime dato){
+    public static String aString(LocalDateTime dato){
         return dato == null ? null : dato.format(formater);
     }
 
