@@ -7,20 +7,28 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import co.com.ceiba.parqueadero.R;
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
+import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
 import co.com.ceiba.parqueadero.ui.Inicio;
@@ -29,11 +37,15 @@ import co.com.ceiba.parqueadero.ui.parqueado.dialogos.DialogoAgregarParqueo;
 
 public class ParqueadoFragment extends Fragment {
 
+    private static final String LISTA = "lista";
+
     private Inicio activity;
 
     private RecyclerView recyclerView;
 
     private RecyclerAdapterParqueado adapter;
+
+    private EditText editTextPlaca;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,14 +56,21 @@ public class ParqueadoFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.recyclerParqueados);
 
-        actualizarRecycler();
+        editTextPlaca = root.findViewById(R.id.editTextPlaca);
+
+        ImageButton imagenBuscar = root.findViewById(R.id.parqueadosImagenBuscar);
+
+        FloatingActionButton fabRefrescar = root.findViewById(R.id.fabRefrescar);
 
         ExtendedFloatingActionButton efb = root.findViewById(R.id.exFb);
 
-        efb.setOnClickListener(view -> {
-            guardar();
-            adapter.setListaParqueos(activity.listarParqueados());
-        });
+        actualizarRecycler();
+
+        fabRefrescar.setOnClickListener(view -> actualizarRecycler());
+
+        efb.setOnClickListener(view -> guardar());
+
+        imagenBuscar.setOnClickListener(view -> buscar());
 
         return root;
     }
@@ -71,7 +90,7 @@ public class ParqueadoFragment extends Fragment {
 
         ((AlertDialog) Objects.requireNonNull(dialogoAgregarParqueo.getDialog())).getButton(DialogInterface.BUTTON_POSITIVE)
                 .setOnClickListener(view -> {
-                    String placa = Objects.requireNonNull(dialogoAgregarParqueo.placaEditText.getText()).toString().trim();
+                    String placa = Objects.requireNonNull(dialogoAgregarParqueo.placaEditText.getText()).toString().toUpperCase().trim();
                     int radioSeleccionado = dialogoAgregarParqueo.radioGrupoTipo.getCheckedRadioButtonId();
 
                     int cilindraje = Integer.parseInt(Objects.requireNonNull(dialogoAgregarParqueo.cilindrajeEditText.getText()).toString().trim());
@@ -86,10 +105,28 @@ public class ParqueadoFragment extends Fragment {
                     Vehiculo vehiculo = new Vehiculo(placa, cilindraje, tipo);
                     Historial historial = new Historial(vehiculo, LocalDateTime.now());
                     AsyncTask.execute(() -> activity.parqueadoViewModel.guardar(historial));
+                    adapter.setListaParqueos(activity.listarParqueados());
                     dialogoAgregarParqueo.dismiss();
                     adapter.notifyDataSetChanged();
                     Toast.makeText(getContext(), "Vehiculo Agregado al parqueadero: " + placa + " Hora: " + historial.getFechaIngreso(), Toast.LENGTH_SHORT).show();
                 });
+    }
+
+    private void buscar() {
+        String placa = editTextPlaca.getText().toString().trim();
+        if (!placa.isEmpty()) {
+            List<Parqueo> historialesBuscado = new ArrayList<>();
+            AsyncTask.execute(() -> {
+                if (activity.parqueadoViewModel.obtenerHistorialActualVehiculoParqueado(placa).isPresent()) {
+                    Historial historial = activity.parqueadoViewModel.obtenerHistorialActualVehiculoParqueado(placa).get();
+                    Parqueo parqueo = new Parqueo(historial.getVehiculo(), historial.getFechaIngreso());
+                    historialesBuscado.add(parqueo);
+                }
+            });
+            adapter.setListaParqueos(historialesBuscado);
+        } else {
+            Toast.makeText(activity, "No hay datos a buscar", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import co.com.ceiba.parqueadero.R;
 
 import co.com.ceiba.parqueadero.ui.Inicio;
@@ -40,7 +42,10 @@ public class HistorialesFragment extends Fragment {
         activity = (Inicio) getActivity();
         recyclerView = root.findViewById(R.id.recyclerHistoriales);
         actualizarRecycler();
-        adapter.notifyDataSetChanged();
+
+        FloatingActionButton fabRefrescar = root.findViewById(R.id.historialesFabRefrescar);
+
+        fabRefrescar.setOnClickListener(view -> actualizarRecycler());
 
         return root;
     }

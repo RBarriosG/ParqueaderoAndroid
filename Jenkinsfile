@@ -37,15 +37,18 @@ pipeline {
                 sh './gradlew clean'
             }
         }
-        stage('Unit Tests') {
+
+        stage('Build') {
+                    steps {
+                        echo "------------>Build<------------"
+                        sh 'gradlew --b ./build.gradle build -x test'
+                    }
+                }
+
+        /*stage('Unit Tests') {
             steps{
-                echo "------------>Unit Tests<------------"
+              echo "------------>Unit Tests<------------"
                 sh ' ./gradlew --b ./build.gradle test'
-            }
-        }
-        stage('Integration Tests') {
-            steps {
-                echo "------------>Integration Tests<------------"
             }
         }
         stage('Static Code Analysis') {
@@ -54,14 +57,7 @@ pipeline {
                 withSonarQubeEnv('Sonar') {
                     sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"}
             }
-        }
-
-        stage('Build') {
-            steps {
-                echo "------------>Build<------------"
-                sh 'gradlew --b ./build.gradle build -x test'
-            }
-        }
+        }*/
     }
 
     post {

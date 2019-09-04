@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public interface HistorialDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void guardar(HistorialEntity historialEntity);
+
+    @Update
+    void actualizar(HistorialEntity historialEntity);
 
     @Query("SELECT * FROM historial WHERE fechaSalida IS NULL GROUP BY placa")
     LiveData<List<HistorialEntity>> listarVehiculosEnElParqueadero();

@@ -41,7 +41,7 @@ public class HistorialImplementacionLocal implements RepositorioHistorial {
 
     @Override
     public Historial actualizar(Historial historial) {
-        historialDao.guardar(ConversorHistorial.convertirAEntidad(historial));
+        historialDao.actualizar(ConversorHistorial.convertirAEntidad(historial));
         return historial;
     }
 

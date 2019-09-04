@@ -40,4 +40,14 @@ public class Historial {
     public double getCobro() {
         return cobro;
     }
+
+    @Override
+    public String toString() {
+        return "Historial{" +
+                "vehiculo=" + vehiculo +
+                ", fechaIngreso=" + fechaIngreso +
+                ", fechaSalida=" + fechaSalida +
+                ", cobro=" + cobro +
+                '}';
+    }
 }

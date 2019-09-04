@@ -19,4 +19,12 @@ public class Parqueo {
     public LocalDateTime getFechaIngreso() {
         return fechaIngreso;
     }
+
+    @Override
+    public String toString() {
+        return "Parqueo{" +
+                "vehiculo=" + vehiculo +
+                ", fechaIngreso=" + fechaIngreso +
+                '}';
+    }
 }

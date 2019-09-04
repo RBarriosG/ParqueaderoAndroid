@@ -9,6 +9,8 @@ import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
+import co.com.ceiba.parqueadero.dominio.servicio.ServicioIngresarVehiculo;
+import co.com.ceiba.parqueadero.persistencia.manejador.ManejadorIngresoVehiculo;
 
 public class ParqueadoViewModel extends ViewModel {
 
