@@ -37,8 +37,6 @@ import co.com.ceiba.parqueadero.ui.parqueado.dialogos.DialogoAgregarParqueo;
 
 public class ParqueadoFragment extends Fragment {
 
-    private static final String LISTA = "lista";
-
     private Inicio activity;
 
     private RecyclerView recyclerView;
@@ -116,13 +114,9 @@ public class ParqueadoFragment extends Fragment {
         String placa = editTextPlaca.getText().toString().trim();
         if (!placa.isEmpty()) {
             List<Parqueo> historialesBuscado = new ArrayList<>();
-            AsyncTask.execute(() -> {
-                if (activity.parqueadoViewModel.obtenerHistorialActualVehiculoParqueado(placa).isPresent()) {
-                    Historial historial = activity.parqueadoViewModel.obtenerHistorialActualVehiculoParqueado(placa).get();
-                    Parqueo parqueo = new Parqueo(historial.getVehiculo(), historial.getFechaIngreso());
-                    historialesBuscado.add(parqueo);
-                }
-            });
+
+            //Aqui implementacion para buscar
+
             adapter.setListaParqueos(historialesBuscado);
         } else {
             Toast.makeText(activity, "No hay datos a buscar", Toast.LENGTH_SHORT).show();

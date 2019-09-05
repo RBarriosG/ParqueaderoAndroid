@@ -22,9 +22,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(HistorialesViewModel.class)) {
-            return (T) new HistorialesViewModel(repositorioHistorial);
+            return (T) new HistorialesViewModel();
         } else if (modelClass.isAssignableFrom(ParqueadoViewModel.class)) {
-            return (T) new ParqueadoViewModel(repositorioHistorial);
+            return (T) new ParqueadoViewModel();
         }
         throw new IllegalArgumentException(CLASE_VIEW_MODEL_DESCONOCIDA);
     }

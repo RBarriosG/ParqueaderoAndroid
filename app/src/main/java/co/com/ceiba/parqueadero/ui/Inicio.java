@@ -22,7 +22,6 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.com.ceiba.parqueadero.Injection;
 import co.com.ceiba.parqueadero.R;
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
