@@ -32,7 +32,7 @@ import static org.hamcrest.Matchers.allOf;
 public class CargarParqueadosTest {
 
     @Rule
-    public ActivityTestRule<Inicio> mActivityTestRule = new ActivityTestRule<>(Inicio.class);
+    public ActivityTestRule<InicioActivity> mActivityTestRule = new ActivityTestRule<>(InicioActivity.class);
 
     @Test
     public void cargarParqueadosTest() {

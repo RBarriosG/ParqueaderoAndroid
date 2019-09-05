@@ -15,19 +15,19 @@ import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.persistencia.conversor.ConversorLocalDateTime;
-import co.com.ceiba.parqueadero.ui.Inicio;
+import co.com.ceiba.parqueadero.ui.InicioActivity;
 
 public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewHolderParqueado> {
 
     private static final String CARRO = "CARRO";
     private static final String MOTO = "MOTO";
 
-    private Inicio activity;
+    private InicioActivity activity;
     private LayoutInflater inflater;
 
     private List<Parqueo> parqueados;
 
-    public RecyclerAdapterParqueado(Inicio activity, List<Parqueo> parqueados) {
+    public RecyclerAdapterParqueado(InicioActivity activity, List<Parqueo> parqueados) {
         this.activity = activity;
         this.inflater = LayoutInflater.from(activity);
         this.parqueados = parqueados;

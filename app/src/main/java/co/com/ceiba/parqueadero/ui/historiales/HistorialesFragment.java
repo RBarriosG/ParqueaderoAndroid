@@ -17,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import co.com.ceiba.parqueadero.R;
 
-import co.com.ceiba.parqueadero.ui.Inicio;
+import co.com.ceiba.parqueadero.ui.InicioActivity;
 import co.com.ceiba.parqueadero.ui.historiales.adapter.RecyclerAdapterHistoriales;
 
 public class HistorialesFragment extends Fragment {
@@ -25,8 +25,6 @@ public class HistorialesFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private RecyclerAdapterHistoriales adapter;
-
-    private Inicio activity;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +37,6 @@ public class HistorialesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_historiales, container, false);
 
-        activity = (Inicio) getActivity();
         recyclerView = root.findViewById(R.id.recyclerHistoriales);
         actualizarRecycler();
 

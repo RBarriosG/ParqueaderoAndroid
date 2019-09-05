@@ -28,13 +28,13 @@ import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Parqueo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.TipoVehiculo;
 import co.com.ceiba.parqueadero.dominio.modelo.vehiculo.Vehiculo;
-import co.com.ceiba.parqueadero.ui.Inicio;
+import co.com.ceiba.parqueadero.ui.InicioActivity;
 import co.com.ceiba.parqueadero.ui.parqueado.adapter.RecyclerAdapterParqueado;
 import co.com.ceiba.parqueadero.ui.parqueado.dialogos.DialogoAgregarParqueo;
 
 public class ParqueadoFragment extends Fragment {
 
-    private Inicio activity;
+    private InicioActivity activity;
 
     private RecyclerView recyclerView;
 
@@ -47,7 +47,7 @@ public class ParqueadoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_parqueados, container, false);
 
-        activity = (Inicio) getActivity();
+        activity = (InicioActivity) getActivity();
 
         recyclerView = root.findViewById(R.id.recyclerParqueados);
 
@@ -71,8 +71,8 @@ public class ParqueadoFragment extends Fragment {
     }
 
     private void actualizarRecycler() {
-        //adapter = new RecyclerAdapterParqueado(activity, ));
-        //adapter.setListaParqueos();
+        adapter = new RecyclerAdapterParqueado(activity, activity.listarParqueados());
+        adapter.setListaParqueos(activity.listarParqueados());
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
