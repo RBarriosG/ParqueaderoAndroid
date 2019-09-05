@@ -1,23 +1,7 @@
 pipeline {
     //Donde se va a ejecutar el Pipeline
     agent {
-        label 'Slave_Induccion'
-    }
-
-    //Opciones especÃ­ficas de Pipeline dentro del Pipeline
-    options {
-        //Mantener artefactos y salida de consola para el # especÃ­fico de ejecucionesrecientes del Pipeline.
-        buildDiscarder(logRotator(numToKeepStr: '3'))
-        //No permitir ejecuciones concurrentes de Pipeline
-        disableConcurrentBuilds()
-    }
-
-    //Una secciÃ³n que define las herramientas para â€œautoinstalarâ€� y poner en la PATH
-    tools {
-        jdk 'JDK8_Centos'
-        //Preinstalada en la ConfiguraciÃ³n del Master
-        gradle 'Gradle5.0_Centos'
-        //Preinstalada en la ConfiguraciÃ³n del Master
+        label 'SlaveTFS'
     }
 
     //AquÃ­ comienzan los â€œitemsâ€� del Pipeline
@@ -25,39 +9,34 @@ pipeline {
         stage('Checkout') {
             steps{
                 echo "------------>Checkout<------------"
-                checkout([$class: 'GitSCM',
-                         branches: [[name: '*/master']],
-                         doGenerateSubmoduleConfigurations: false,
-                         extensions: [],
-                         gitTool:'Git_Centos',
-                         submoduleCfg: [],
-                         userRemoteConfigs: [[credentialsId:'GitHub_RBarriosG',
-                         url:'https://github.com/RBarriosG/ParqueaderoAndroid']]])
-                sh 'chmod u+x gradlew'
-                sh './gradlew clean'
+                bat 'java -version'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'GIT_TFS', submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GitHub_RBarriosG', url: 'https://github.com/RBarriosG/ParqueaderoAndroid']]])
             }
         }
 
         stage('Build') {
-                    steps {
-                        echo "------------>Build<------------"
-                        sh './gradlew --b ./build.gradle build -x test'
-                    }
-                }
-
-        /*stage('Unit Tests') {
-            steps{
-              echo "------------>Unit Tests<------------"
-                sh ' ./gradlew --b ./build.gradle test'
+            steps {
+                echo "------------>Build<------------"
+                bat './gradlew --b ./build.gradle clean build -x :app:test'
             }
         }
+
+        stage('Unit Tests') {
+            steps{
+                echo "------------>Unit Tests<------------"
+                bat ' ./gradlew --b ./build.gradle :app:test'
+            }
+        }
+
         stage('Static Code Analysis') {
             steps{
-                echo '------------>AnÃ¡lisis de cÃ³digo estÃ¡tico<------------'
-                withSonarQubeEnv('Sonar') {
-                    sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"}
+                echo '------------>Análisis de código estático<------------'
+                /*withSonarQubeEnv('Sonar') {
+                    bat "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+
+                }*/
             }
-        }*/
+        }
     }
 
     post {
@@ -66,7 +45,6 @@ pipeline {
           }
           success {
               echo 'This will run only if successful'
-              junit '**/build/test-results/test/*.xml'
           }
           failure {
             echo 'This will run only if failed'
