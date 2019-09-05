@@ -1,9 +1,6 @@
 package co.com.ceiba.parqueadero.ui.parqueado.adapter;
 
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -79,7 +76,9 @@ public class RecyclerAdapterParqueado extends RecyclerView.Adapter<RecyclerViewH
         builder.setTitle("Total a cobrar")
                 .setMessage("  $ "+historial.getCobro())
                 .setPositiveButton("OK", (dialogInterface, i) -> {
-                    AsyncTask.execute(() -> activity.parqueadoViewModel.guardar(historial));
+
+                    //Implementar metodo para salida de vehiculo
+
                     parqueados.remove(posicion);
                     notifyDataSetChanged();
                 })

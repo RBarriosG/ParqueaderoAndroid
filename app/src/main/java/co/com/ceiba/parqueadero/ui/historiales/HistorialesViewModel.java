@@ -6,17 +6,18 @@ import java.util.List;
 
 import co.com.ceiba.parqueadero.dominio.modelo.historial.Historial;
 import co.com.ceiba.parqueadero.dominio.repositorio.RepositorioHistorial;
+import co.com.ceiba.parqueadero.dominio.servicio.ServicioListarHistorial;
 
 public class HistorialesViewModel extends ViewModel {
 
-    private RepositorioHistorial repositorioHistorial;
+    private ServicioListarHistorial servicioListarHistorial;
 
-    public HistorialesViewModel(RepositorioHistorial repositorioHistorial) {
-        this.repositorioHistorial = repositorioHistorial;
+    public HistorialesViewModel(ServicioListarHistorial servicioListarHistorial) {
+        this.servicioListarHistorial = servicioListarHistorial;
     }
 
     public List<Historial> listar() {
-        return repositorioHistorial.listar();
+        return servicioListarHistorial.ejecutar();
     }
 
 }

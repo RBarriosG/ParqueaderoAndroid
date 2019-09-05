@@ -2,7 +2,6 @@ package co.com.ceiba.parqueadero.ui.parqueado;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -74,8 +71,8 @@ public class ParqueadoFragment extends Fragment {
     }
 
     private void actualizarRecycler() {
-        adapter = new RecyclerAdapterParqueado(activity, activity.listarParqueados());
-        adapter.setListaParqueos(activity.listarParqueados());
+        //adapter = new RecyclerAdapterParqueado(activity, ));
+        //adapter.setListaParqueos();
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
@@ -102,8 +99,9 @@ public class ParqueadoFragment extends Fragment {
 
                     Vehiculo vehiculo = new Vehiculo(placa, cilindraje, tipo);
                     Historial historial = new Historial(vehiculo, LocalDateTime.now());
-                    AsyncTask.execute(() -> activity.parqueadoViewModel.guardar(historial));
-                    adapter.setListaParqueos(activity.listarParqueados());
+
+                    //Implementar metodo guardar
+
                     dialogoAgregarParqueo.dismiss();
                     adapter.notifyDataSetChanged();
                     Toast.makeText(getContext(), "Vehiculo Agregado al parqueadero: " + placa + " Hora: " + historial.getFechaIngreso(), Toast.LENGTH_SHORT).show();
