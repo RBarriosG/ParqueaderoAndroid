@@ -51,7 +51,7 @@ public class HistorialesFragment extends Fragment {
     }
 
     private void actualizarRecycler(){
-        adapter = new RecyclerAdapterHistoriales(activity, activity.listarHistoriales());
+        //adapter = new RecyclerAdapterHistoriales(activity, activity.listarHistoriales());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
